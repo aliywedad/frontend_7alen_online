@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import AgoraRTC, { IAgoraRTCClient, IMicrophoneAudioTrack, IRemoteAudioTrack } from 'agora-rtc-sdk-ng'
+import AgoraRTC from 'agora-rtc-sdk-ng'
+import type { IAgoraRTCClient, IMicrophoneAudioTrack, IRemoteAudioTrack } from 'agora-rtc-sdk-ng'
 import { Phone, PhoneOff, Mic, MicOff, Headphones, PhoneIncoming, Volume2 } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import { useToast } from '../hooks/useToast'
@@ -36,7 +37,7 @@ function getCallPayload(): CallPayload | null {
 // ─────────────────────────────────────────────────────────────────────────────
 // Mode A — Active call tab (opened by acceptCall)
 // ─────────────────────────────────────────────────────────────────────────────
-function ActiveCallTab({ payload, token: authToken }: { payload: CallPayload; token: string | null }) {
+function ActiveCallTab({ payload, token: authToken }: { payload: CallPayload; token: string }) {
   const { toast, notify } = useToast()
   const clientRef   = useRef<IAgoraRTCClient | null>(null)
   const localTrack  = useRef<IMicrophoneAudioTrack | null>(null)
@@ -193,7 +194,7 @@ const ctrlBtn: React.CSSProperties = {
 // ─────────────────────────────────────────────────────────────────────────────
 // Mode B — Dispatcher tab (normal SPA page, polls for calls)
 // ─────────────────────────────────────────────────────────────────────────────
-function DispatcherTab({ token }: { token: string | null }) {
+function DispatcherTab({ token }: { token: string }) {
   const { toast, notify } = useToast()
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const [calls, setCalls] = useState<CallSession[]>([])

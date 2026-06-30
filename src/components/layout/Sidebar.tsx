@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import {
   LayoutDashboard, Package, UtensilsCrossed, Car, Users, Truck,
-  Tag, Image, Star, Bell, BarChart3, Settings, ClipboardList, List,
+  Tag, Image, Star, Bell, BarChart3, Settings, ClipboardList,
   ChevronLeft, ChevronRight, X, LogOut, MessageCircle, PhoneCall,
 } from 'lucide-react'
 import { NAV_ITEMS } from '../../constants'
@@ -24,7 +24,6 @@ const ICONS: Record<NavIconId, React.ComponentType<{ size?: number }>> = {
   settings:      Settings,
   audit:         ClipboardList,
   whatsapp:         MessageCircle,
-  whatsappMessages: List,
   calls:            PhoneCall,
 }
 

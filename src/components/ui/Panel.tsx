@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 
 type PanelProps = {
-  title: string
+  title: ReactNode
   tools?: ReactNode
   children: ReactNode
   className?: string
