@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat /home/aliy/Projects/I3M/7alen/backend/prisma/schema.prisma)",
+      "Read(//home/aliy/Projects/I3M/7alen/backend/prisma/**)",
+      "Bash(pnpm add *)",
+      "Bash(pnpm run *)",
+      "Bash(curl -s http://localhost:5173)",
+      "Bash(kill %1)",
+      "Bash(pnpm build *)"
+    ]
+  }
+}

@@ -1,0 +1,199 @@
+/* ─── Tailwind v4 ─────────────────────────────────────── */
+@import "tailwindcss";
+
+/* ─── Custom theme colours (used as tw utilities) ──────── */
+@theme {
+  --color-primary:        #fdae00;
+  --color-primary-dark:   #e09900;
+  --color-primary-light:  #fff7e0;
+  --color-secondary:      #d13100;
+  --color-secondary-dark: #b02800;
+  --color-sidebar:        #0f0500;
+  --color-surface:        #ffffff;
+  --color-bg:             #f4f6f9;
+}
+
+/* ─── CSS custom properties (used in App.css & components) */
+:root {
+  --primary:        #fdae00;
+  --primary-dark:   #e09900;
+  --secondary:      #d13100;
+  --secondary-dark: #b02800;
+
+  --sidebar-bg:    #200600;
+  --sidebar-width: 240px;
+  --sidebar-rail:  64px;
+  --navbar-h:      60px;
+
+  --bg:      #f4f6f9;
+  --surface: #ffffff;
+  --border:  #e5e7eb;
+  --text:    #0d1b2a;
+  --muted:   #6b7280;
+
+  --success: #16a34a;
+  --error:   #dc2626;
+  --warning: #d97706;
+  --info:    #0284c7;
+
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+
+  --shadow:    0 4px 20px rgba(0,0,0,0.07);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+  --transition: 0.2s ease;
+}
+
+/* ─── Base resets (keep after Tailwind preflight) ──────── */
+h1, h2, h3, h4 { margin: 0; }
+img { display: block; max-width: 100%; }
+
+/* ─── Global inputs / selects (light theme pages) ──────── */
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+  width: 100%;
+  padding: 9px 12px;
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-sm);
+  font-size: 13px;
+  color: var(--text);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+input:not([type="checkbox"]):not([type="radio"]):focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(253,174,0,0.15);
+}
+input::placeholder, textarea::placeholder { color: var(--muted); }
+
+/* ─── SweetAlert2 custom theme ──────────────────────────── */
+.swal-popup {
+  font-family: inherit !important;
+  border-radius: 20px !important;
+  padding: 28px !important;
+  max-width: 420px !important;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.18) !important;
+}
+.swal-title {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: #0d1b2a !important;
+  margin-bottom: 6px !important;
+}
+.swal-html {
+  font-size: 13.5px !important;
+  color: #6b7280 !important;
+  margin-bottom: 0 !important;
+}
+.swal-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #6b7280;
+  margin-bottom: 8px;
+  text-align: left;
+}
+.swal-input {
+  border: 1.5px solid #e5e7eb !important;
+  border-radius: 10px !important;
+  font-size: 14px !important;
+  padding: 10px 14px !important;
+  color: #0d1b2a !important;
+  box-shadow: none !important;
+  transition: border-color 0.15s, box-shadow 0.15s !important;
+  margin-top: 4px !important;
+}
+.swal-input:focus {
+  border-color: #fdae00 !important;
+  box-shadow: 0 0 0 3px rgba(253,174,0,0.18) !important;
+}
+.swal-icon {
+  border: none !important;
+  width: 56px !important;
+  height: 56px !important;
+  margin: 0 auto 12px !important;
+}
+/* warning icon → amber */
+.swal2-icon.swal2-warning {
+  border-color: #fdae00 !important;
+  color: #fdae00 !important;
+}
+/* question icon → amber */
+.swal2-icon.swal2-question {
+  border-color: #fdae00 !important;
+  color: #fdae00 !important;
+}
+.swal-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-weight: 700 !important;
+  font-size: 13.5px !important;
+  padding: 10px 22px !important;
+  border-radius: 12px !important;
+  border: 0 !important;
+  cursor: pointer !important;
+  transition: background 0.15s, transform 0.1s, box-shadow 0.15s !important;
+}
+.swal-btn:active { transform: scale(0.98) !important; }
+.swal-btn:focus  { outline: none !important; box-shadow: none !important; }
+
+/* Confirm = amber (primary) */
+.swal-btn-confirm {
+  background: #fdae00 !important;
+  color: #0f0500 !important;
+  box-shadow: 0 2px 8px rgba(253,174,0,0.3) !important;
+}
+.swal-btn-confirm:hover {
+  background: #e09900 !important;
+  box-shadow: 0 4px 16px rgba(253,174,0,0.4) !important;
+}
+/* Confirm for delete dialogs = red */
+.swal2-popup.swal-delete .swal-btn-confirm {
+  background: #dc2626 !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(220,38,38,0.3) !important;
+}
+.swal2-popup.swal-delete .swal-btn-confirm:hover {
+  background: #b91c1c !important;
+  box-shadow: 0 4px 16px rgba(220,38,38,0.4) !important;
+}
+/* Cancel = ghost */
+.swal-btn-cancel {
+  background: #f1f5f9 !important;
+  color: #374151 !important;
+  border: 1.5px solid #e5e7eb !important;
+}
+.swal-btn-cancel:hover {
+  background: #e2e8f0 !important;
+  border-color: #d1d5db !important;
+}
+/* Deny = red */
+.swal-btn-deny {
+  background: #fee2e2 !important;
+  color: #dc2626 !important;
+}
+.swal-btn-deny:hover { background: #fecaca !important; }
+
+/* Backdrop */
+.swal2-backdrop-show { background: rgba(0,0,0,0.45) !important; backdrop-filter: blur(4px) !important; }
+
+/* Actions row spacing */
+.swal2-actions { gap: 10px !important; margin-top: 20px !important; }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.spin { animation: spin 0.8s linear infinite; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
